@@ -1,4 +1,4 @@
-import {lazy, Suspense} from 'react';
+import {lazy, Suspense, memo} from 'react';
 import {Route, Routes} from 'react-router';
 import MainLayout from '@/layouts/main-layout';
 import {ROUTES} from '@/consts';
@@ -7,7 +7,7 @@ const HomePage = lazy(() => import('./home'));
 const NoticePage = lazy(() => import('./notice'));
 const NotificationPage = lazy(() => import('./notification'));
 
-export const Router = () => {
+export const Router = memo(() => {
   return (
     <Suspense>
       <Routes>
@@ -19,4 +19,4 @@ export const Router = () => {
       </Routes>
     </Suspense>
   );
-};
+});

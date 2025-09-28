@@ -1,7 +1,8 @@
+import {memo} from 'react';
 import {Router} from './pages/router';
 
-function App() {
+const App = memo(() => {
   return <Router />;
-}
+});
 
 export default App;

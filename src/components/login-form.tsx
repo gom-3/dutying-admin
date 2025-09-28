@@ -1,10 +1,11 @@
+import {memo} from 'react';
 import {Button} from '@/components/ui/button';
 import {Card, CardContent} from '@/components/ui/card';
 import {Input} from '@/components/ui/input';
 import {Label} from '@/components/ui/label';
 import {cn} from '@/lib/utils';
 
-export function LoginForm({className, ...props}: React.ComponentProps<'div'>) {
+export const LoginForm = memo(({className, ...props}: React.ComponentProps<'div'>) => {
   return (
     <div className={cn('flex flex-col gap-6', className)} {...props}>
       <Card className="overflow-hidden p-0">
@@ -88,4 +89,4 @@ export function LoginForm({className, ...props}: React.ComponentProps<'div'>) {
       </div>
     </div>
   );
-}
+});
