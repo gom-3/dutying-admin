@@ -1,6 +1,5 @@
 import {LogOut, Key, Check} from 'lucide-react';
 import React, {useState} from 'react';
-import {setAuthToken} from '@/api/client';
 import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
 import {Label} from '@/components/ui/label';
@@ -13,14 +12,12 @@ export const AuthSection: React.FC = () => {
   const handleSaveToken = () => {
     if (inputToken.trim()) {
       setToken(inputToken.trim());
-      setAuthToken(inputToken.trim());
       setIsEditing(false);
       setInputToken('');
     }
   };
   const handleLogout = () => {
     logout();
-    setAuthToken(null);
     setIsEditing(true);
     setInputToken('');
   };
