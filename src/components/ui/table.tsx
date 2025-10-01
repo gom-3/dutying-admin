@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {cn} from '@/lib/utils';
 
 const Table = React.memo(({className, ...props}: React.ComponentProps<'table'>) => {
@@ -13,11 +12,9 @@ const Table = React.memo(({className, ...props}: React.ComponentProps<'table'>) 
     </div>
   );
 });
-
 const TableHeader = React.memo(({className, ...props}: React.ComponentProps<'thead'>) => {
   return <thead data-slot="table-header" className={cn('[&_tr]:border-b', className)} {...props} />;
 });
-
 const TableBody = React.memo(({className, ...props}: React.ComponentProps<'tbody'>) => {
   return (
     <tbody
@@ -27,7 +24,6 @@ const TableBody = React.memo(({className, ...props}: React.ComponentProps<'tbody
     />
   );
 });
-
 const TableFooter = React.memo(({className, ...props}: React.ComponentProps<'tfoot'>) => {
   return (
     <tfoot
@@ -37,7 +33,6 @@ const TableFooter = React.memo(({className, ...props}: React.ComponentProps<'tfo
     />
   );
 });
-
 const TableRow = React.memo(({className, ...props}: React.ComponentProps<'tr'>) => {
   return (
     <tr
@@ -50,7 +45,6 @@ const TableRow = React.memo(({className, ...props}: React.ComponentProps<'tr'>) 
     />
   );
 });
-
 const TableHead = React.memo(({className, ...props}: React.ComponentProps<'th'>) => {
   return (
     <th
@@ -63,7 +57,6 @@ const TableHead = React.memo(({className, ...props}: React.ComponentProps<'th'>)
     />
   );
 });
-
 const TableCell = React.memo(({className, ...props}: React.ComponentProps<'td'>) => {
   return (
     <td
@@ -76,7 +69,6 @@ const TableCell = React.memo(({className, ...props}: React.ComponentProps<'td'>)
     />
   );
 });
-
 const TableCaption = React.memo(({className, ...props}: React.ComponentProps<'caption'>) => {
   return (
     <caption

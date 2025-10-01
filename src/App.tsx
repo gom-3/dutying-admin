@@ -1,8 +1,13 @@
 import {memo} from 'react';
+import {AuthProvider} from './contexts/auth-context';
 import {Router} from './pages/router';
 
 const App = memo(() => {
-  return <Router />;
+  return (
+    <AuthProvider>
+      <Router />
+    </AuthProvider>
+  );
 });
 
 export default App;
