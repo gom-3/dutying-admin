@@ -1,6 +1,7 @@
 import * as React from 'react';
 import {Link} from 'react-router-dom';
 import Logo from '@/assets/logo.svg?react';
+import {AuthSection} from '@/components/auth-section';
 import {
   Sidebar,
   SidebarContent,
@@ -13,6 +14,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
   SidebarRail,
+  SidebarFooter,
 } from '@/components/ui/sidebar';
 import {ROUTES} from '@/consts';
 
@@ -86,6 +88,9 @@ export const AppSidebar = React.memo(({...props}: React.ComponentProps<typeof Si
           </SidebarMenu>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter>
+        <AuthSection />
+      </SidebarFooter>
       <SidebarRail />
     </Sidebar>
   );
