@@ -1,16 +1,15 @@
+import {LogOut, Key, Check} from 'lucide-react';
 import React, {useState} from 'react';
+import {setAuthToken} from '@/api/client';
 import {Button} from '@/components/ui/button';
 import {Input} from '@/components/ui/input';
 import {Label} from '@/components/ui/label';
 import {useAuth} from '@/contexts/auth-context';
-import {setAuthToken} from '@/api/client';
-import {LogOut, Key, Check} from 'lucide-react';
 
 export const AuthSection: React.FC = () => {
   const {token, setToken, isAuthenticated, logout} = useAuth();
   const [inputToken, setInputToken] = useState('');
   const [isEditing, setIsEditing] = useState(!isAuthenticated);
-
   const handleSaveToken = () => {
     if (inputToken.trim()) {
       setToken(inputToken.trim());
@@ -19,17 +18,15 @@ export const AuthSection: React.FC = () => {
       setInputToken('');
     }
   };
-
   const handleLogout = () => {
     logout();
     setAuthToken(null);
     setIsEditing(true);
     setInputToken('');
   };
-
   const handleEdit = () => {
     setIsEditing(true);
-    setInputToken(token || '');
+    setInputToken(token ?? '');
   };
 
   return (

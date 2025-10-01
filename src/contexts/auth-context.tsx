@@ -1,4 +1,4 @@
-import React, {createContext, useContext, useState, useEffect, ReactNode} from 'react';
+import React, {createContext, useContext, useState, useEffect, type ReactNode} from 'react';
 
 interface AuthContextType {
   token: string | null;
@@ -8,7 +8,6 @@ interface AuthContextType {
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
-
 const TOKEN_STORAGE_KEY = 'dutying_admin_token';
 
 interface AuthProviderProps {
@@ -21,6 +20,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
   // 컴포넌트 마운트 시 로컬스토리지에서 토큰 불러오기
   useEffect(() => {
     const savedToken = localStorage.getItem(TOKEN_STORAGE_KEY);
+
     if (savedToken) {
       setTokenState(savedToken);
     }
@@ -28,19 +28,17 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
 
   const setToken = (newToken: string | null) => {
     setTokenState(newToken);
+
     if (newToken) {
       localStorage.setItem(TOKEN_STORAGE_KEY, newToken);
     } else {
       localStorage.removeItem(TOKEN_STORAGE_KEY);
     }
   };
-
   const logout = () => {
     setToken(null);
   };
-
   const isAuthenticated = !!token;
-
   const value: AuthContextType = {
     token,
     setToken,
@@ -53,8 +51,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
 
 export const useAuth = (): AuthContextType => {
   const context = useContext(AuthContext);
+
   if (context === undefined) {
     throw new Error('useAuth must be used within an AuthProvider');
   }
+
   return context;
 };
